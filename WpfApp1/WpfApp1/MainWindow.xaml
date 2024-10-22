@@ -4,14 +4,14 @@
         Title="Image Info Viewer" Height="450" Width="800">
     <Grid>
         <Button Content="Select Folder" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Width="100" Click="SelectFolder_Click"/>
-        <DataGrid x:Name="dataGrid" IsReadOnly="True" AutoGenerateColumns="False" Margin="10,50,10,10">
+        <DataGrid x:Name="dataGrid" IsReadOnly="True" AutoGenerateColumns="False" Margin="10,50,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="File name" Binding="{Binding FileName}" />
-                <DataGridTextColumn Header="Extension" Binding="{Binding FileExtension}" />
-                <DataGridTextColumn Header="Size" Binding="{Binding Size}" />
-                <DataGridTextColumn Header="Resolution" Binding="{Binding Resolution}" />
-                <DataGridTextColumn Header="Color depth" Binding="{Binding ColorDepth}" />
-                <DataGridTextColumn Header="Compression" Binding="{Binding Compression}" />
+                <DataGridTextColumn Header="File name" Binding="{Binding FileName}" Width="*" />
+                <DataGridTextColumn Header="Extension" Binding="{Binding FileExtension}" Width="*" />
+                <DataGridTextColumn Header="Size" Binding="{Binding Size}" Width="*"  />
+                <DataGridTextColumn Header="Resolution" Binding="{Binding Resolution}" Width="*" />
+                <DataGridTextColumn Header="Color depth" Binding="{Binding ColorDepth}" Width="*" />
+                <DataGridTextColumn Header="Compression" Binding="{Binding Compression}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
