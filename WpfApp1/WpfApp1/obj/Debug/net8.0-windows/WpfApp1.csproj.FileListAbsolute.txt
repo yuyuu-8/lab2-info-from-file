@@ -39,3 +39,4 @@ C:\nastya\pkg\2\WpfApp1\WpfApp1\bin\Debug\net8.0-windows\runtimes\osx-x64\native
 C:\nastya\pkg\2\WpfApp1\WpfApp1\bin\Debug\net8.0-windows\runtimes\win-arm64\native\Magick.Native-Q16-arm64.dll
 C:\nastya\pkg\2\WpfApp1\WpfApp1\bin\Debug\net8.0-windows\runtimes\win-x64\native\Magick.Native-Q16-x64.dll
 C:\nastya\pkg\2\WpfApp1\WpfApp1\bin\Debug\net8.0-windows\runtimes\win-x86\native\Magick.Native-Q16-x86.dll
+C:\nastya\pkg\2\WpfApp1\WpfApp1\obj\Debug\net8.0-windows\WpfApp1.sourcelink.json

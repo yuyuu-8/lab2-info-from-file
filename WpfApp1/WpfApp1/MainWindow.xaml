@@ -4,7 +4,7 @@
         Title="Image Info Viewer" Height="450" Width="800">
     <Grid>
         <Button Content="Select Folder" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Width="100" Click="SelectFolder_Click"/>
-        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" Margin="10,50,10,10">
+        <DataGrid x:Name="dataGrid" IsReadOnly="True" AutoGenerateColumns="False" Margin="10,50,10,10">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="File name" Binding="{Binding FileName}" />
                 <DataGridTextColumn Header="Extension" Binding="{Binding FileExtension}" />

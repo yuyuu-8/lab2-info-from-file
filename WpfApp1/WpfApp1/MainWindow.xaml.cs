@@ -41,7 +41,7 @@ namespace WpfApp1
                             FileExtension = extension.Substring(1),
                             Size = $"{image.Width} x {image.Height}",
                             Resolution = $"{image.Density.X} x {image.Density.Y} dpi",
-                            ColorDepth = $"{image.Depth}",
+                            ColorDepth = $"{image.ChannelCount * image.Depth}",
                             Compression = image.Compression.ToString()
                         });
                     }
