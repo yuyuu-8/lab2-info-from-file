@@ -13,6 +13,8 @@
                 <DataGridTextColumn Header="Color depth" Binding="{Binding ColorDepth}" Width="*" />
                 <DataGridTextColumn Header="Compression" Binding="{Binding Compression}" Width="*" />
                 <DataGridTextColumn Header="Alpha Channel" Binding="{Binding AlphaChannel}" Width="*" />
+                <DataGridTextColumn Header="Interlace" Binding="{Binding Interlace}" Width="*" />
+                <DataGridTextColumn Header="Animation" Binding="{Binding Animation}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

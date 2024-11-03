@@ -31,7 +31,6 @@ namespace WpfApp1
 
             var files = Directory.GetFiles(folderPath);
 
-
             foreach (var file in files)
             {
                 string extension = Path.GetExtension(file).ToLower();
@@ -51,7 +50,9 @@ namespace WpfApp1
                                 Resolution = $"{image.Density.X} x {image.Density.Y} dpi",
                                 ColorDepth = $"{image.ChannelCount * image.Depth}",
                                 Compression = image.Compression.ToString(),
-                                AlphaChannel = GetAlphaChannel(image.HasAlpha)
+                                AlphaChannel = GetAlphaChannel(image.HasAlpha),
+                                Interlace = isInterlaced(image),
+                                Animation = isAnimated(file)
                             });
                         }
                     } else
@@ -68,7 +69,9 @@ namespace WpfApp1
                                 Resolution = $"{image_.DpiX} x {image_.DpiY} dpi",
                                 ColorDepth = GetColorDepth(image_.Format),
                                 Compression = image.Compression.ToString(),
-                                AlphaChannel = GetAlphaChannel(image.HasAlpha)
+                                AlphaChannel = GetAlphaChannel(image.HasAlpha),
+                                Interlace = isInterlaced(image),
+                                Animation = isAnimated(file)
                             });
                         }
                     }
@@ -80,7 +83,7 @@ namespace WpfApp1
 
         private bool IsImageFile(string extension)
         {
-            string[] validExtensions = { ".jpg", ".jpeg", ".png", ".bmp", ".gif", ".tif", ".pcx" };
+            string[] validExtensions = { ".jpg", ".jpeg", ".png", ".bmp", ".gif", ".tif", ".tiff", ".pcx" };
             return Array.Exists(validExtensions, e => e.Equals(extension, StringComparison.OrdinalIgnoreCase));
         }
 
@@ -88,12 +91,38 @@ namespace WpfApp1
         {
             if (flag)
             {
-                return "Yes";
+                return "YES";
             }
-            return "No";
+            return "NO";
         }
 
-        private string GetColorDepth(PixelFormat format)
+        private string isInterlaced(MagickImage image)
+        {   if (image.Interlace == Interlace.Line ||
+        image.Interlace == Interlace.Plane ||
+        image.Interlace == Interlace.Partition)
+            {
+                return "YES";
+            }
+            return "NO";
+        }
+
+        private string isAnimated(string file)
+        {
+            bool animated;
+            using (var imageCollection = new MagickImageCollection(file))
+            {
+                animated = imageCollection.Count > 1;
+            }
+
+            if (animated)
+            {
+                return "YES";
+            }
+
+            return "NO";
+        }
+
+private string GetColorDepth(PixelFormat format)
         {
             if (format == PixelFormats.Indexed8)
             {
@@ -120,5 +149,7 @@ namespace WpfApp1
         public string ColorDepth { get; set; }
         public string Compression { get; set; }
         public string AlphaChannel { get; set; }
+        public string Interlace { get; set; }
+        public string Animation { get; set; }
     }
 }
