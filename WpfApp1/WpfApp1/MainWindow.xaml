@@ -12,6 +12,7 @@
                 <DataGridTextColumn Header="Resolution" Binding="{Binding Resolution}" Width="*" />
                 <DataGridTextColumn Header="Color depth" Binding="{Binding ColorDepth}" Width="*" />
                 <DataGridTextColumn Header="Compression" Binding="{Binding Compression}" Width="*" />
+                <DataGridTextColumn Header="Alpha Channel" Binding="{Binding AlphaChannel}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

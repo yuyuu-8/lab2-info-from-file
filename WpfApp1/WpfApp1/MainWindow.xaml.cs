@@ -50,7 +50,8 @@ namespace WpfApp1
                                 Size = $"{image.Width} x {image.Height}",
                                 Resolution = $"{image.Density.X} x {image.Density.Y} dpi",
                                 ColorDepth = $"{image.ChannelCount * image.Depth}",
-                                Compression = image.Compression.ToString()
+                                Compression = image.Compression.ToString(),
+                                AlphaChannel = GetAlphaChannel(image.HasAlpha)
                             });
                         }
                     } else
@@ -66,7 +67,8 @@ namespace WpfApp1
                                 Size = $"{image_.Width} x {image_.Height}",
                                 Resolution = $"{image_.DpiX} x {image_.DpiY} dpi",
                                 ColorDepth = GetColorDepth(image_.Format),
-                                Compression = image.Compression.ToString()
+                                Compression = image.Compression.ToString(),
+                                AlphaChannel = GetAlphaChannel(image.HasAlpha)
                             });
                         }
                     }
@@ -78,8 +80,17 @@ namespace WpfApp1
 
         private bool IsImageFile(string extension)
         {
-            string[] validExtensions = { ".jpg", ".jpeg", ".png", ".bmp", ".gif", ".tiff", ".pcx" };
+            string[] validExtensions = { ".jpg", ".jpeg", ".png", ".bmp", ".gif", ".tif", ".pcx" };
             return Array.Exists(validExtensions, e => e.Equals(extension, StringComparison.OrdinalIgnoreCase));
+        }
+
+        private string GetAlphaChannel(bool flag)
+        {
+            if (flag)
+            {
+                return "Yes";
+            }
+            return "No";
         }
 
         private string GetColorDepth(PixelFormat format)
@@ -108,5 +119,6 @@ namespace WpfApp1
         public string Resolution { get; set; }
         public string ColorDepth { get; set; }
         public string Compression { get; set; }
+        public string AlphaChannel { get; set; }
     }
 }
