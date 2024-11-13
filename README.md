@@ -1,3 +1,7 @@
+# To run:
+### Download file "mysetup.exe", run it in your computer, choose the directory to download all of the files needed to run the application.
+
+# Used functions and libraries^
 ### <ins>*_File Name_*</ins> - using Path.GetFileNameWithoutExtension(file) from inner library;
 ### <ins>*_File Exstension_*</ins> - using Path.GetExtension(file).ToLower() from inner library;
 ### <ins>*_File Size_*</ins> - using Width and Height from ImageMagick library and BitmapImage class;
