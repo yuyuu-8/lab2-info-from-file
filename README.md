@@ -1,3 +1,6 @@
+# The Task:
+### Make an app, that makes the table with info about uploaded files (6 image extensions supported).
+
 # To run:
 ### Download file "mysetup.exe", run it in your computer, choose the directory to download all of the files needed to run the application.
 
